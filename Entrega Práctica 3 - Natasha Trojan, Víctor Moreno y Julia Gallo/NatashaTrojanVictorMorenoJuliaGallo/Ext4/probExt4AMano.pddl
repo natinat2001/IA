@@ -1,0 +1,125 @@
+(define (problem planificacion-contenidos-problema4)
+  (:domain planificacion-contenidos)
+
+  (:objects
+    contenido1 contenido2 contenido3 contenido4 contenido5 contenido6 contenido7 contenido8 contenido9 contenido10 - contenido
+    dia1 dia2 dia3 dia4 dia5 dia6 dia7 dia8 dia9 dia10 dia11 dia12 dia13 dia14 dia15 dia16 dia17 dia18 dia19 dia20 dia21 dia22 dia23 dia24 dia25 dia26 dia27 dia28 dia29 dia30 - dia
+  )
+
+  (:init
+    ; Duraciones de los contenidos dentro del rango [20, 80]
+    (= (duracion contenido1) 25)
+    (= (duracion contenido2) 30)
+    (= (duracion contenido3) 50)
+    (= (duracion contenido4) 35)
+    (= (duracion contenido5) 45)
+    (= (duracion contenido6) 55)
+    (= (duracion contenido7) 40)
+    (= (duracion contenido8) 60)
+    (= (duracion contenido9) 65)
+    (= (duracion contenido10) 70)
+
+    ; Inicialización de minutos consumidos para cada día a 0
+    (= (minutos_consumidos dia1) 0)
+    (= (minutos_consumidos dia2) 0)
+    (= (minutos_consumidos dia3) 0)
+    (= (minutos_consumidos dia4) 0)
+    (= (minutos_consumidos dia5) 0)
+    (= (minutos_consumidos dia6) 0)
+    (= (minutos_consumidos dia7) 0)
+    (= (minutos_consumidos dia8) 0)
+    (= (minutos_consumidos dia9) 0)
+    (= (minutos_consumidos dia10) 0)
+    (= (minutos_consumidos dia11) 0)
+    (= (minutos_consumidos dia12) 0)
+    (= (minutos_consumidos dia13) 0)
+    (= (minutos_consumidos dia14) 0)
+    (= (minutos_consumidos dia15) 0)
+    (= (minutos_consumidos dia16) 0)
+    (= (minutos_consumidos dia17) 0)
+    (= (minutos_consumidos dia18) 0)
+    (= (minutos_consumidos dia19) 0)
+    (= (minutos_consumidos dia20) 0)
+    (= (minutos_consumidos dia21) 0)
+    (= (minutos_consumidos dia22) 0)
+    (= (minutos_consumidos dia23) 0)
+    (= (minutos_consumidos dia24) 0)
+    (= (minutos_consumidos dia25) 0)
+    (= (minutos_consumidos dia26) 0)
+    (= (minutos_consumidos dia27) 0)
+    (= (minutos_consumidos dia28) 0)
+    (= (minutos_consumidos dia29) 0)
+    (= (minutos_consumidos dia30) 0)
+
+    ; Relaciones de predecesores
+    (predecesor contenido1 contenido2)
+    (predecesor contenido2 contenido3)
+    (predecesor contenido4 contenido5)
+
+    ; Relaciones de paralelos
+    (paralelo contenido1 contenido6)
+    (paralelo contenido2 contenido7)
+    (paralelo contenido5 contenido8)
+
+    ; Contenidos que el usuario quiere ver
+    (quiere_ver contenido1)
+    (quiere_ver contenido2)
+    (quiere_ver contenido3)
+    (quiere_ver contenido5)
+
+    ; Inicialización de días
+    (= (numero_dia dia1) 1)
+    (= (numero_dia dia2) 2)
+    (= (numero_dia dia3) 3)
+    (= (numero_dia dia4) 4)
+    (= (numero_dia dia5) 5)
+    (= (numero_dia dia6) 6)
+    (= (numero_dia dia7) 7)
+    (= (numero_dia dia8) 8)
+    (= (numero_dia dia9) 9)
+    (= (numero_dia dia10) 10)
+    (= (numero_dia dia11) 11)
+    (= (numero_dia dia12) 12)
+    (= (numero_dia dia13) 13)
+    (= (numero_dia dia14) 14)
+    (= (numero_dia dia15) 15)
+    (= (numero_dia dia16) 16)
+    (= (numero_dia dia17) 17)
+    (= (numero_dia dia18) 18)
+    (= (numero_dia dia19) 19)
+    (= (numero_dia dia20) 20)
+    (= (numero_dia dia21) 21)
+    (= (numero_dia dia22) 22)
+    (= (numero_dia dia23) 23)
+    (= (numero_dia dia24) 24)
+    (= (numero_dia dia25) 25)
+    (= (numero_dia dia26) 26)
+    (= (numero_dia dia27) 27)
+    (= (numero_dia dia28) 28)
+    (= (numero_dia dia29) 29)
+    (= (numero_dia dia30) 30)
+
+    ; Planificación inicial de los contenidos
+    (= (planificado_para contenido1) 0)
+    (= (planificado_para contenido2) 0)
+    (= (planificado_para contenido3) 0)
+    (= (planificado_para contenido4) 0)
+    (= (planificado_para contenido5) 0)
+    (= (planificado_para contenido6) 0)
+    (= (planificado_para contenido7) 0)
+    (= (planificado_para contenido8) 0)
+    (= (planificado_para contenido9) 0)
+    (= (planificado_para contenido10) 0)
+  )
+
+  (:goal (forall (?c - contenido)
+            (or
+              (not (quiere_ver ?c))
+              (visto ?c)
+            )
+          )
+  )
+)
+
+
+
